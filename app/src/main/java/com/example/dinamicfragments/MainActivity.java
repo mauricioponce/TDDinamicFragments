@@ -29,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSecondFragment() {
         SecondFragment secondFragment = SecondFragment.newInstance("", "");
-        getSupportFragmentManager().beginTransaction().add(R.id.mainContainer, secondFragment, "Second").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, secondFragment, "Second").commit();
     }
 
     private void showFirstFragment() {
         FirstFragment firstFragment = FirstFragment.newInstance("", "");
-        getSupportFragmentManager().beginTransaction().add(R.id.mainContainer, firstFragment, "First").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, firstFragment, "First").commit();
+
     }
 }
