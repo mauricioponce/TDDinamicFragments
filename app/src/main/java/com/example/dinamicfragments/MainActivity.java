@@ -15,26 +15,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        binding.btShowFragment.setOnClickListener(v -> {
-            showFirstFragment();
-        });
-
-        binding.btSecondFragment.setOnClickListener(v -> {
-                    showSecondFragment();
-                }
-        );
-
-    }
-
-    private void showSecondFragment() {
-        SecondFragment secondFragment = SecondFragment.newInstance("", "");
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, secondFragment, "Second").commit();
-    }
-
-    private void showFirstFragment() {
-        FirstFragment firstFragment = FirstFragment.newInstance("", "");
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, firstFragment, "First").commit();
-
     }
 }

@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.dinamicfragments.databinding.FragmentFirstBinding;
+import com.example.dinamicfragments.databinding.FragmentThirdBinding;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FirstFragment#newInstance} factory method to
+ * Use the {@link ThirdFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FirstFragment extends Fragment {
+public class ThirdFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +27,7 @@ public class FirstFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FirstFragment() {
+    public ThirdFragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +37,11 @@ public class FirstFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstFragment.
+     * @return A new instance of fragment ThirdFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
-        FirstFragment fragment = new FirstFragment();
+    public static ThirdFragment newInstance(String param1, String param2) {
+        ThirdFragment fragment = new ThirdFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,21 +62,10 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentFirstBinding binding = FragmentFirstBinding.inflate(getLayoutInflater());
-
-        binding.btSecond.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString(SecondFragment.ARG_PARAM1, "mi primer valor");
-            bundle.putString(SecondFragment.ARG_PARAM1, "mi segundo valor");
-            bundle.putInt(SecondFragment.ARG_PARAM3, 111);
-
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_firstFragment_to_secondFragment, bundle);
+        FragmentThirdBinding binding = FragmentThirdBinding.inflate(getLayoutInflater());
+        binding.textView3.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_thirdFragment_to_firstFragment);
         });
-
-        binding.btThird.setOnClickListener(v -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_firstFragment_to_thirdFragment);
-        });
-
         return binding.getRoot();
     }
 }
